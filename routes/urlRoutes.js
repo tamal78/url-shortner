@@ -38,6 +38,7 @@ const router = express.Router();
  * /shorten:
  *   post:
  *     summary: Shorten a URL
+ *     description: Accepts a valid URL and returns a shortened version of it.
  *     requestBody:
  *       required: true
  *       content:
@@ -61,9 +62,35 @@ router.post("/shorten", shortenUrl);
 
 /**
  * @swagger
+ * /{shortId}:
+ *   get:
+ *     summary: Redirect to the original URL
+ *     description: |
+ *       Redirects the user to the original URL corresponding to the provided `shortId`.
+ *       - This endpoint works in the browser and tools like Postman.
+ *       - **Note**: Swagger UI may not follow the redirect due to browser CORS limitations.
+ *     parameters:
+ *       - in: path
+ *         name: shortId
+ *         required: true
+ *         schema:
+ *           type: string
+ *           description: The unique ID of the shortened URL
+ *           example: "abc123"
+ *     responses:
+ *       302:
+ *         description: Redirects to the original URL
+ *       404:
+ *         description: URL not found
+ */
+router.get("/:shortId", redirectUrl);
+
+/**
+ * @swagger
  * /stats/{shortId}:
  *   get:
  *     summary: Get statistics for a short URL
+ *     description: Retrieves statistics for the given short URL, including click counts and last accessed timestamp.
  *     parameters:
  *       - in: path
  *         name: shortId
@@ -83,26 +110,5 @@ router.post("/shorten", shortenUrl);
  *         description: URL not found
  */
 router.get("/stats/:shortId", getUrlStats);
-
-/**
- * @swagger
- * /{shortId}:
- *   get:
- *     summary: Redirect to the original URL
- *     parameters:
- *       - in: path
- *         name: shortId
- *         required: true
- *         schema:
- *           type: string
- *           description: The unique ID of the shortened URL
- *           example: "abc123"
- *     responses:
- *       302:
- *         description: Redirects to the original URL
- *       404:
- *         description: URL not found
- */
-router.get("/:shortId", redirectUrl);
 
 module.exports = router;
