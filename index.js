@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cors = require("cors");
 const connectToDatabase = require("./utils/db");
 const urlRoutes = require("./routes/urlRoutes");
 const rateLimiter = require("./middlewares/rateLimiter");
@@ -12,6 +13,7 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
+app.use(cors());
 app.use(rateLimiter);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
