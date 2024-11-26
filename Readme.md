@@ -136,3 +136,69 @@ Snapshots:   0 total
 Time:        2.006 s
 Ran all test suites.
 ```
+
+## API Endpoints
+
+### **Try the API with Swagger**
+
+For an interactive way to test and explore the API, visit the **Swagger API Documentation** at "/api-docs":
+Swagger provides detailed documentation and allows you to directly test the endpoints.
+
+---
+
+### **API Endpoints (Brief)**
+
+Here’s a quick overview of the available API endpoints and their functionality:
+
+#### **1. POST `/shorten`**
+
+- **What It Does**: Shortens a given valid URL into a compact, unique identifier.
+- **Use Case**: Generate short URLs for easier sharing and tracking.
+- **Example**:
+  - **Request**:
+    ```json
+    {
+      "originalUrl": "https://example.com"
+    }
+    ```
+  - **Response**:
+    ```json
+    {
+      "shortUrl": "http://localhost:5000/abc123"
+    }
+    ```
+
+---
+
+#### **2. GET `/{shortId}`**
+
+- **What It Does**: Redirects the user from the short URL to the original URL. Additionally, it updates the **click count** and records the **last accessed timestamp** for tracking purposes.
+- **Use Case**: Navigate to the original URL using its shortened version while keeping track of usage metrics.
+- **Example**:
+  - **Request**: Visit `http://localhost:5000/abc123`.
+  - **Response**: Redirects to `https://example.com`.
+  - **Backend Updates**:
+    - **Click Count**: Incremented by `1`.
+    - **Last Accessed**: Updated to the current timestamp.
+
+---
+
+#### **3. GET `/stats/{shortId}`**
+
+- **What It Does**: Retrieves usage statistics for a given short URL.
+- **Use Case**: Monitor the performance of your short URL, including click counts and last access time.
+- **Example**:
+  - **Request**: `http://localhost:5000/stats/abc123`
+  - **Response**:
+    ```json
+    {
+      "originalUrl": "https://example.com",
+      "shortId": "abc123",
+      "clicks": 10,
+      "lastAccessed": "2024-11-26T12:00:00Z"
+    }
+    ```
+
+---
+
+Explore more at **Swagger API Docs** or test these endpoints directly using tools like Postman.
