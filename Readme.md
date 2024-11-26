@@ -17,7 +17,7 @@ A lightweight and efficient API to shorten URLs, redirect users, and track usage
 
 ## Deployed URL
 
-Access the deployed version of this API here: [Deployed](https://dummy-url-shortener.com)
+Access the deployed version of this API here: [Deployed](https://url-shortner-ogym.onrender.com)
 
 ---
 
@@ -27,7 +27,7 @@ Explore the interactive API documentation via Swagger for detailed information o
 
 ### **Access the Swagger Documentation**
 
-- **Deployed Version**: [API Docs](https://dummy-url-shortener.com/api-docs)
+- **Deployed Version**: [API Docs](https://url-shortner-ogym.onrender.com/api-docs)
 - **Or go "/api-docs" route either in localhost or deployed URL**
 - **For Example: http://localhost:5000/api-docs**
 
@@ -47,8 +47,8 @@ This comprehensive Swagger UI allows you to test endpoints interactively and vie
 ### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/tamal78/url-shortener.git
-cd url-shortener
+git clone https://github.com/tamal78/url-shortner.git
+cd url-shortner
 ```
 
 ### 3. Set Up Environment Variables
@@ -74,8 +74,8 @@ npm run dev
 ### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/tamal78/url-shortener.git
-cd url-shortener
+git clone https://github.com/tamal78/url-shortner.git
+cd url-shortner
 ```
 
 ### 3. Set Up Environment Variables
@@ -89,14 +89,14 @@ PORT=5000
 ### 4. Build Docker Image
 
 ```bash
-docker build -t url-shortener .
+docker build -t url-shortner .
 
 ```
 
 ### 5. Run the Docker Container
 
 ```bash
-docker run -p 5000:5000 --env-file .env url-shortener
+docker run -p 5000:5000 --env-file .env url-shortner
 
 ```
 
