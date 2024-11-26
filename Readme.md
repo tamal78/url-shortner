@@ -17,7 +17,7 @@ A lightweight and efficient API to shorten URLs, redirect users, and track usage
 
 ## Deployed URL
 
-Access the deployed version of this API here: [Deployed](https://dummy-url-shortener.com)
+Access the deployed version of this API here: [Deployed](https://url-shortner-ogym.onrender.com)
 
 ---
 
@@ -27,7 +27,7 @@ Explore the interactive API documentation via Swagger for detailed information o
 
 ### **Access the Swagger Documentation**
 
-- **Deployed Version**: [API Docs](https://dummy-url-shortener.com/api-docs)
+- **Deployed Version**: [API Docs](https://url-shortner-ogym.onrender.com/api-docs)
 - **Or go "/api-docs" route either in localhost or deployed URL**
 - **For Example: http://localhost:5000/api-docs**
 
